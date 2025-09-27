@@ -7,6 +7,7 @@ import { Menu, GraduationCap } from "lucide-react";
 const navItems = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
+  { name: "Programs", href: "/about" },
   { name: "Events", href: "/events" },
   { name: "Notices", href: "/notices" },
   { name: "Gallery", href: "/gallery" },
@@ -20,30 +21,30 @@ export function Navigation() {
   const location = useLocation();
 
   return (
-    <nav className="bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 w-full border-b border-border">
+    <nav className="bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 sticky top-0 z-50 w-full border-b border-gray-200 shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           <Link to="/" className="flex items-center space-x-2">
-            <GraduationCap className="h-8 w-8 text-primary" />
-            <span className="font-bold text-xl text-primary">Champion English School</span>
+            <GraduationCap className="h-8 w-8 text-blue-600" />
+            <span className="font-bold text-xl text-gray-900">Champion English School</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
+          <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors hover:text-primary ${
+                className={`px-3 py-2 text-sm font-medium transition-colors hover:text-blue-600 ${
                   location.pathname === item.href
-                    ? "text-primary bg-muted"
-                    : "text-muted-foreground"
+                    ? "text-blue-600 border-b-2 border-blue-600"
+                    : "text-gray-700 hover:text-blue-600"
                 }`}
               >
                 {item.name}
               </Link>
             ))}
-            <Button asChild variant="outline" size="sm" className="ml-4">
+            <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2">
               <Link to="/admin">Admin</Link>
             </Button>
           </div>
@@ -62,16 +63,16 @@ export function Navigation() {
                     key={item.name}
                     to={item.href}
                     onClick={() => setIsOpen(false)}
-                    className={`px-3 py-2 rounded-md text-sm font-medium transition-colors hover:text-primary ${
+                    className={`px-3 py-2 text-sm font-medium transition-colors hover:text-blue-600 ${
                       location.pathname === item.href
-                        ? "text-primary bg-muted"
-                        : "text-muted-foreground"
+                        ? "text-blue-600 bg-blue-50"
+                        : "text-gray-700"
                     }`}
                   >
                     {item.name}
                   </Link>
                 ))}
-                <Button asChild variant="outline" size="sm" className="self-start">
+                <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white self-start">
                   <Link to="/admin" onClick={() => setIsOpen(false)}>
                     Admin
                   </Link>
