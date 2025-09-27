@@ -1,128 +1,48 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { 
-  Calendar, 
-  Bell, 
-  Image, 
-  Trophy, 
-  Users, 
-  Phone, 
-  GraduationCap, 
-  ArrowRight, 
-  Sparkles,
-  BookOpen,
-  Star,
-  Globe,
-  Award,
-  Clock,
-  MapPin,
-  Mail,
-  Play,
-  ChevronRight,
-  Quote,
-  CheckCircle
-} from "lucide-react";
+import { Calendar, Bell, Image, Trophy, Users, Phone, GraduationCap, ArrowRight, Sparkles } from "lucide-react";
 import { WelcomePopup } from "@/components/WelcomePopup";
 
 const Index = () => {
-  const [isApplyOpen, setIsApplyOpen] = useState(false);
-  const [isBrochureOpen, setIsBrochureOpen] = useState(false);
-
   return (
     <Layout>
       <WelcomePopup />
       
-      {/* Hero Section - BIC Style */}
-      <section className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 text-white py-24 overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-r from-primary to-accent text-primary-foreground py-20 overflow-hidden">
+        {/* Floating elements */}
+        <div className="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full animate-float animation-delay-200"></div>
+        <div className="absolute top-20 right-20 w-16 h-16 bg-white/5 rounded-full animate-bounce-gentle animation-delay-400"></div>
+        <div className="absolute bottom-10 left-1/4 w-12 h-12 bg-white/10 rounded-full animate-float animation-delay-600"></div>
         
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <Badge className="mb-6 bg-blue-600 text-white px-4 py-2 text-sm">
-              Autumn Intake 2025
-            </Badge>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-              Champion English School
-            </h1>
-            <p className="text-xl md:text-2xl mb-4 text-blue-100">
-              Sayapatri Margha, Dharan-15, Nepal
-            </p>
-            <p className="text-lg md:text-xl mb-8 text-blue-200 max-w-3xl mx-auto leading-relaxed">
-              Transforming Lives Through Innovation & Education with ingenuity at the forefront of all our decisions, 
-              we strive to become a contributive factor in the betterment of Nepal and society.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Dialog open={isApplyOpen} onOpenChange={setIsApplyOpen}>
-                <DialogTrigger asChild>
-                  <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 text-lg">
-                    Apply Now
-                  </Button>
-                </DialogTrigger>
-                <DialogContent className="max-w-md">
-                  <DialogHeader>
-                    <DialogTitle>Apply to Champion English School</DialogTitle>
-                    <DialogDescription>
-                      Fill out the form below to start your application process.
-                    </DialogDescription>
-                  </DialogHeader>
-                  <div className="space-y-4">
-                    <div>
-                      <Label htmlFor="name">Full Name</Label>
-                      <Input id="name" placeholder="Enter your full name" />
-                    </div>
-                    <div>
-                      <Label htmlFor="email">Email</Label>
-                      <Input id="email" type="email" placeholder="Enter your email" />
-                    </div>
-                    <div>
-                      <Label htmlFor="phone">Phone Number</Label>
-                      <Input id="phone" placeholder="Enter your phone number" />
-                    </div>
-                    <div>
-                      <Label htmlFor="message">Message (Optional)</Label>
-                      <Textarea id="message" placeholder="Tell us about yourself" />
-                    </div>
-                    <Button className="w-full" onClick={() => setIsApplyOpen(false)}>
-                      Submit Application
-                    </Button>
-                  </div>
-                </DialogContent>
-              </Dialog>
-              
-              <Dialog open={isBrochureOpen} onOpenChange={setIsBrochureOpen}>
-                <DialogTrigger asChild>
-                  <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-900 px-8 py-3 text-lg">
-                    Download Brochure
-                  </Button>
-                </DialogTrigger>
-                <DialogContent className="max-w-md">
-                  <DialogHeader>
-                    <DialogTitle>Download Our Brochure</DialogTitle>
-                    <DialogDescription>
-                      Get detailed information about our programs and facilities.
-                    </DialogDescription>
-                  </DialogHeader>
-                  <div className="space-y-4">
-                    <div>
-                      <Label htmlFor="brochure-email">Email Address</Label>
-                      <Input id="brochure-email" type="email" placeholder="Enter your email" />
-                    </div>
-                    <Button className="w-full" onClick={() => setIsBrochureOpen(false)}>
-                      Download Now
-                    </Button>
-                  </div>
-                </DialogContent>
-              </Dialog>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <div className="flex justify-center mb-6 animate-fade-in">
+            <div className="relative">
+              <GraduationCap className="h-16 w-16 animate-bounce-gentle" />
+              <Sparkles className="absolute -top-2 -right-2 h-6 w-6 animate-pulse text-accent" />
             </div>
+          </div>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in animation-delay-200">
+            Champion English School
+          </h1>
+          <p className="text-xl md:text-2xl mb-4 opacity-90 animate-fade-in animation-delay-400">
+            Sayapatri Margha, Dharan-15, Nepal
+          </p>
+          <p className="text-lg md:text-xl mb-8 opacity-80 max-w-2xl mx-auto animate-fade-in animation-delay-600">
+            Unleashing the Champion within everyone
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in animation-delay-800">
+            <Button asChild size="lg" variant="secondary" className="hover-scale group">
+              <Link to="/about">
+                Learn More
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="bg-white/10 border-white/20 text-white hover:bg-white/20 hover-scale">
+              <Link to="/contact">Contact Us</Link>
+            </Button>
           </div>
         </div>
       </section>
